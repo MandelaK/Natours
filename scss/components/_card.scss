@@ -1,0 +1,46 @@
+.card {
+  // Add perspective to give element 3D effect
+  perspective: 150rem;
+  --moz-perspective: 150rem;
+  position: relative;
+  height: 50rem;
+
+  &__side {
+    height: 50rem;
+    transition: all 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // Hide that backface of elements
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      // The back is already rotated when the page loads
+      transform: rotateY(180deg);
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    // when you hover the card, the front side is rotated 180deg
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    // back side is rotated back to view when you hover the card
+    transform: rotateY(0);
+  }
+}
