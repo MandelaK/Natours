@@ -421,6 +421,9 @@ body {
   font-size: 1.6rem;
   transform: skewX(-12deg);
 }
+.story:not(:last-child) {
+  margin-bottom: 8rem;
+}
 .story__shape {
   width: 15rem;
   height: 15rem;
@@ -430,12 +433,36 @@ body {
   -webkit-clip-path: circle(50% at 50% 50%);
   clip-path: circle(50% at 50% 50%);
   transform: translateX(-3rem) skewX(12deg);
+  position: relative;
 }
 .story__image {
   height: 100%;
+  transition: all 0.5s;
+  transform: translateX(-15%) scale(1.4);
 }
 .story__text {
   transform: skewX(12deg);
+}
+.story__caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.5s;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.story:hover .story__caption {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.story:hover .story__image {
+  transform: translateX(-15%) scale(1);
+  filter: blur(3px) brightness(90%);
 }
 
 .row {
@@ -529,11 +556,11 @@ body {
 
 .section-tours {
   background-color: #f7f7f7;
-  padding: 25rem 0 15rem 0;
+  padding: 25rem 0 6rem 0;
   margin-top: -10rem;
 }
 
 .section-stories {
-  padding: 15rem 0;
+  padding: 6rem 0;
   background-color: #f7f7f7;
 }
