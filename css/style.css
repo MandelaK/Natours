@@ -800,6 +800,7 @@ body {
   transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   opacity: 0;
   width: 0;
+  visibility: hidden;
 }
 
 .navigation__list {
@@ -855,6 +856,7 @@ body {
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
   width: 100%;
+  visibility: visible;
 }
 
 .navigation__icon {
