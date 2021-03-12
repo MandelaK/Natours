@@ -7,7 +7,23 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; //1rem = 10px
+
+  @include responsive(big-dektop) {
+    font-size: 75%; // 1rem = 12px
+  }
+
+  @include responsive(tab-landscape) {
+    font-size: 56.25%; // 1rem = 9px
+  }
+
+  @include responsive(tab-portrait) {
+    font-size: 50%; // 1rem = 8px
+  }
+
+  // @include respond-phone {
+  //   font-size: 50%;
+  // }
 }
 
 body {
