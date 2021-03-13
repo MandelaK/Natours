@@ -5,8 +5,18 @@
   //   &:last-child {
   //     margin-bottom: 0;
   //   }
+
+  @include responsive(tab-portrait) {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include responsive(tab-portrait) {
+      margin-bottom: $gutter-vertical-small;
+    }
   }
 
   @include clearfix;
@@ -16,6 +26,15 @@
     float: left;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include responsive(tab-portrait) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include responsive(tab-portrait) {
+      width: 100% !important;
     }
   }
 

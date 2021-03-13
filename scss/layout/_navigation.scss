@@ -13,6 +13,11 @@
     z-index: 2000;
     text-align: center;
     cursor: pointer;
+
+    @include responsive(tab-portrait) {
+      top: 3rem;
+      right: 3rem;
+    }
   }
   &__background {
     height: 6rem;
@@ -27,6 +32,11 @@
     );
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+
+    @include responsive(tab-portrait) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
   }
   &__nav {
     height: 100vh;

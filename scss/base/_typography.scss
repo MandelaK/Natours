@@ -3,7 +3,6 @@ body {
   font-weight: 400;
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
 }
 
 .heading-primary {
@@ -21,6 +20,11 @@ body {
     animation-name: headingMainMoveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
+
+    @include responsive(phone) {
+      letter-spacing: 1rem;
+      font-size: 6rem;
+    }
   }
 
   &--sub {
@@ -31,6 +35,10 @@ body {
     animation-name: headingSubMoveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-out;
+
+    @include responsive(phone) {
+      letter-spacing: 0.5rem;
+    }
   }
 }
 
@@ -51,6 +59,14 @@ body {
   //**
   letter-spacing: 2px;
   transition: all 0.2s;
+
+  @include responsive(tab-portrait) {
+    font-size: 3rem;
+  }
+
+  @include responsive(phone) {
+    font-size: 2.5rem;
+  }
 
   &:hover {
     transform: skewY(2deg) skewX(10deg) scale(1.1);
