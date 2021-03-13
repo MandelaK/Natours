@@ -4,6 +4,10 @@
 
 .u-mb-big {
   margin-bottom: 8rem !important;
+
+  @include responsive(tab-portrait) {
+    margin-bottom: 5rem !important;
+  }
 }
 
 .u-mb-small {
@@ -12,8 +16,16 @@
 
 .u-mb-medium {
   margin-bottom: 4rem !important;
+
+  @include responsive(tab-portrait) {
+    margin-bottom: 3rem !important;
+  }
 }
 
 .u-mt-big {
   margin-top: 8rem !important;
+
+  @include responsive(tab-portrait) {
+    margin-bottom: 5rem !important;
+  }
 }

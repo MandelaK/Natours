@@ -2,6 +2,10 @@
   background-color: $color-light-gray;
   padding: 25rem 0;
   margin-top: -20vh;
+
+  @include responsive(tab-portrait) {
+    padding: 20rem 0;
+  }
 }
 
 .section-features {
@@ -21,17 +25,30 @@
     // Selecte the direct child and undo the skew
     transform: skewY(7deg);
   }
+
+  @include responsive(tab-portrait) {
+    padding: 10rem 0;
+  }
 }
 
 .section-tours {
   background-color: $color-light-gray;
-  padding: 25rem 0 6rem 0;
+  padding: 25rem 0 15rem 0;
   margin-top: -10rem;
+
+  @include responsive(tab-portrait) {
+    padding: 20rem 0 10rem 0;
+    margin-top: -12rem;
+  }
 }
 
 .section-stories {
   position: relative;
-  padding: 6rem 0;
+  padding: 8rem 0;
+
+  @include responsive(tab-portrait) {
+    padding: 4rem 0;
+  }
 }
 
 .section-booking {
@@ -41,6 +58,10 @@
     $color-primary-light,
     $color-primary-dark
   );
+
+  @include responsive(tab-portrait) {
+    padding: 10rem 0;
+  }
 }
 
 .book {

@@ -11,6 +11,10 @@
     transform: translateY(-1.5rem) scale(1.05);
   }
 
+  @include responsive(tab-portrait) {
+    padding: 2rem;
+  }
+
   &__icon {
     font-size: 6rem;
     margin-bottom: 1.5rem;
@@ -23,5 +27,9 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+
+    @include responsive(tab-portrait) {
+      margin-bottom: 0;
+    }
   }
 }
