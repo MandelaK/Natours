@@ -331,6 +331,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
@@ -701,6 +702,13 @@ body {
   visibility: hidden;
   transition: all 0.3s;
 }
+@supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+  .popup {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
 .popup__content {
   position: absolute;
   top: 50%;
@@ -846,12 +854,19 @@ body {
   width: 15rem;
   height: 15rem;
   float: left;
-  -webkit-shape-outside: circle(50% at 50% 50%);
-  shape-outside: circle(50% at 50% 50%);
-  -webkit-clip-path: circle(50% at 50% 50%);
-  clip-path: circle(50% at 50% 50%);
   transform: translateX(-3rem) skewX(12deg);
   position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+  .story__shape {
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    border-radius: none;
+  }
 }
 @media (max-width: 37.5em) {
   .story__shape {
@@ -1030,7 +1045,7 @@ body {
 }
 
 .header {
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(126, 213, 111, 0.8),
@@ -1043,19 +1058,28 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
 }
-@media (max-width: 56.25em) {
+@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
   .header {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 95%);
-    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 95%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
+  @media (max-width: 56.25em) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 95%);
+      clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 95%);
+    }
+  }
+  @media (max-width: 37.5em) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
   }
 }
-@media (max-width: 37.5em) {
-  .header {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-  }
-}
-@media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 120em) {
+@media (min-resolution: 192dpi) and (min-width: 37.5em),
+  (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em),
+  (min-width: 120em) {
   .header {
     background-image: linear-gradient(
         to right bottom,

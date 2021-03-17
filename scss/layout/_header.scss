@@ -1,5 +1,5 @@
 .header {
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(
       to right bottom,
       rgba($color-primary-light, 0.8),
@@ -12,19 +12,28 @@
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
 
-  @include responsive(tab-portrait) {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 95%);
-    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 95%);
-  }
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
 
-  @include responsive(phone) {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    @include responsive(tab-portrait) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 95%);
+      clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 95%);
+    }
+
+    @include responsive(phone) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
   }
 
   // 1. Devices with high resolution and width over 600px are served with higher resolution image
+  //    Add fallback for safari
   // 2. Devices with width over 1920px width are served with higher res image, regardless of screen resolution
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 120em) {
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em),
+    (min-width: 120em) {
     background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.8),
