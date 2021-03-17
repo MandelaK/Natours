@@ -181,7 +181,8 @@
     font-weight: 300;
   }
 
-  @include responsive(tab-portrait) {
+  // Devices that cannot hover should also have this style applied
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
     border-radius: 3px;
     background-color: $color-white;

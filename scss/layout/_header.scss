@@ -31,9 +31,9 @@
   // 1. Devices with high resolution and width over 600px are served with higher resolution image
   //    Add fallback for safari
   // 2. Devices with width over 1920px width are served with higher res image, regardless of screen resolution
-  @media (min-resolution: 192dpi) and (min-width: 37.5em),
-    (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em),
-    (min-width: 120em) {
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em),
+    only screen and (min-width: 120em) {
     background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.8),
